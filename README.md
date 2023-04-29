@@ -175,16 +175,20 @@ Api que será desenvolvida para o challenge da plusoft
 
 | campo | tipo | obrigatório | descrição
 |-------|------|:-------------:|---
-| id | id | sim | id da conversa 
-| chat | string | sim | parte da conversa usando durante app
+| userId | id | sim | id da conversa do usuário
+| chatId | id | sim | id da conversa do chatGPT
+| userMensagem | string | sim | parte da conversa do usuário com o chatGPT
+| chatMensagem | string | sim | parte da conversa e resposta com usuário
 
 
 **Exemplo de corpo de requisição**
 
 ```js
 {
-  id: 1,
-  chat: 'Estou querendo conversar agora',
+  userId: 1,
+  chatId: 1,
+  userMensagem: 'Estou querendo conversar agora',
+  chatMensagem: 'Sim, estou aqui para conversar com você a qualquer momento'
 }
 ```
 
@@ -206,8 +210,10 @@ Api que será desenvolvida para o challenge da plusoft
 
 ```js
 {
-  id: 1,
-  chat: 'Estou querendo conversar agora',
+  userId: 1,
+  chatId: 1,
+  userMensagem: 'Estou querendo conversar agora',
+  chatMensagem: 'Sim, estou aqui para conversar com você a qualquer momento'
 }
 ```
 
