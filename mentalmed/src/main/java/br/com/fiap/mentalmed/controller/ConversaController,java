@@ -1,0 +1,5 @@
+package br.com.fiap.mentalmed.controller;
+
+@RestController
+@RequestMapping("/api/conversa")
+pub
