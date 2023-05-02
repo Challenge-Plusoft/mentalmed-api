@@ -17,14 +17,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.mentalmed.exceptions.RestNotFoundException;
-import br.com.fiap.mentalmed.models.Produtos;
+import br.com.fiap.mentalmed.models.Conversa;
 import br.com.fiap.mentalmed.models.RestValidationError;
 import br.com.fiap.mentalmed.repository.ProdutosRepository;
 import jakarta.validation.Valid;

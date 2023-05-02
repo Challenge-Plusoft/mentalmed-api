@@ -15,6 +15,7 @@ Api que será desenvolvida para o challenge da plusoft
   - [Salvar conversa](#Salvar-conversa)
   - [Ver conversa](#Ver-conversa)
   - [Deletar conversa](#Deletar-conversa)
+  - [Mostrar conversa](#Mostrar-conversa)
   
  ---
  
@@ -238,3 +239,9 @@ Api que será desenvolvida para o challenge da plusoft
 | 500 | erro no servidor
 
 ---
+
+### Mostrar conversa
+
+`GET` /mentalmed/conversa
+
+
