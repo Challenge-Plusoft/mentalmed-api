@@ -30,14 +30,14 @@ public class UsuarioController {
     @Autowired
     TokenJwtService tokenJwtService;
 
-    @PostMapping("/api/cadastrar")
+    @PostMapping("/mentalmed/cadastrar")
     public ResponseEntity<Usuario> registrar(@RequestBody @Valid Usuario usuario) {
         usuario.setSenha(encoder.encode(usuario.getSenha()));
         repository.save(usuario);
         return ResponseEntity.status(HttpStatus.CREATED).body(usuario);
     }
 
-    @PostMapping("/api/login")
+    @PostMapping("/mentalmed/login")
     public ResponseEntity<Object> login(@RequestBody @Valid Credencial credencial) {
        manager.authenticate(credencial.toAuthentication());
        var token = tokenJwtService.generateToken(credencial);
