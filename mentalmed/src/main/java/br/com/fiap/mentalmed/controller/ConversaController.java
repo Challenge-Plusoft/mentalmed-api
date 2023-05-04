@@ -29,7 +29,7 @@ import br.com.fiap.mentalmed.repository.ConversaRepository;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/conversa")
+@RequestMapping("/mentalmed/conversa")
 public class ConversaController {
 
    Logger log = LoggerFactory.getLogger(ConversaController.class);
@@ -37,11 +37,14 @@ public class ConversaController {
    @Autowired
    ConversaRepository repository;
 
+   @Autowired
+   PagedResourcesAssembler<Object> assembler;
+
    @PostMapping
    public ResponseEntity<Object> create(@RequestBody @Valid Conversa conversa){
       log.info("Criando a conversa " + conversa);
-      repository.save(conversa)
-      return ResponseEntity.created(conversa.toEntityModel(),getRequiredLink("self").toUri()).body(conversa.toEntityModel());
+      repository.save(conversa);
+      return ResponseEntity.created(conversa.toEntityModel().getRequiredLink("self").toUri()).body(conversa.toEntityModel());
    }
 
    @GetMapping("{id}")
@@ -51,13 +54,22 @@ public class ConversaController {
    }
 
    @DeleteMapping("{id}")
-   public ResponseEntity<Produtos> destroy(@PathVariable Long id){
+   public ResponseEntity<Conversa> destroy(@PathVariable Long id){
       log.info("Apagando a conversa" + id);
       var conversa = getConversa(id);
 
       repository.delete(conversa);   
 
       return ResponseEntity.noContent().build();
+   }
+
+   @GetMapping
+   public PagedModel<EntityModel<Object>> lista(@RequestParam(required = false) String busca, @PageableDefault(size = 5) Pageable pageable) {
+      Page<Conversa> conversas = (busca == null)?
+         repository.findAll(pageable):
+         repository.findByDescricaoContaining(busca, pageable);
+
+      return assembler.toModel(conversas.map(Conversa::toEntityModel));
    }
 
    private Conversa getConversa(Long id) {
