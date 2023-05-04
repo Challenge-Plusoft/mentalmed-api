@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.fiap.mentalmed.exceptions.RestNotFoundException;
 import br.com.fiap.mentalmed.models.Conversa;
 import br.com.fiap.mentalmed.models.RestValidationError;
-import br.com.fiap.mentalmed.repository.ProdutosRepository;
+import br.com.fiap.mentalmed.repository.ConversaRepository;
 import jakarta.validation.Valid;
 
 @RestController
