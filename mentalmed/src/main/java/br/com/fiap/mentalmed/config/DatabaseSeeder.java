@@ -3,8 +3,11 @@ package br.com.fiap.mentalmed.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
+
+import br.com.fiap.mentalmed.models.Conversa;
 import br.com.fiap.mentalmed.models.Usuario;
 import br.com.fiap.mentalmed.repository.UsuarioRepository;
+import br.com.fiap.mentalmed.repository.ConversaRepository;
 
 import java.util.List;
 
@@ -14,8 +17,15 @@ public class DatabaseSeeder implements CommandLineRunner {
    @Autowired
    UsuarioRepository usuarioRepository;
 
+   @Autowired
+   ConversaRepository conversaRepository;
+
    @Override
    public void run(String... args) throws Exception {
+
+      conversaRepository.saveAll(List.of(
+         Conversa.builder().userMensagem("Hoje eu me senti um pouco mais feliz").chatMensagem("Isso é ótimo nós estamos evoluído").build()
+      ));
 
 
       usuarioRepository.save(Usuario.builder()

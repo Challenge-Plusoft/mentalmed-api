@@ -23,8 +23,9 @@ public class SecurityConfig {
    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
        return http
                .authorizeHttpRequests()
-                   .requestMatchers(HttpMethod.POST, "/api/cadastrar").permitAll()
-                   .requestMatchers(HttpMethod.POST, "/api/login").permitAll()
+                   .requestMatchers(HttpMethod.POST, "/mentalmed/cadastrar").permitAll()
+                   .requestMatchers(HttpMethod.POST, "/mentalmed/login").permitAll()
+                   .requestMatchers("/v3/api-docs/**", "/swagger-ui/**").permitAll()
                    .anyRequest().authenticated()
                .and()
                .csrf().disable()

@@ -43,7 +43,7 @@ public class Conversa {
           linkTo(methodOn(ConversaController.class).show(chatId)).withSelfRel(),
           linkTo(methodOn(ConversaController.class).destroy(userId)).withRel("delete"),
           linkTo(methodOn(ConversaController.class).destroy(chatId)).withRel("delete"),
-          linkTo(methodOn(ConversaController.class).lista(null, Pageable.unpaged())).withRel("all")
+          linkTo(methodOn(ConversaController.class).index(null, Pageable.unpaged())).withRel("all")
       );
   }
 }
