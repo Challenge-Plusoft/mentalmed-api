@@ -5,12 +5,9 @@ Api que será desenvolvida para o challenge da plusoft
 ## Endpoints
 
 - Login do usuário
-  - [Autenticar](#Autenticar)
+  - [Logar](#Logar)
 - Cadastro de usuário
   - [Criar usuário](#Criar-usuário)
-  - [Obter usuário](#Obter-usuário)
-  - [Atualizar usuário](#Atualizar-usuário)
-  - [Excluir usuário](#Excluir-usuário)
 - Conversa do chat
   - [Salvar conversa](#Salvar-conversa)
   - [Ver conversa](#Ver-conversa)
@@ -21,7 +18,7 @@ Api que será desenvolvida para o challenge da plusoft
  
  ### Autenticar
  
- `GET`/mentalmed/login
+ `POST`/mentalmed/login
 
 
 | campo | tipo | obrigatório | descrição
@@ -52,7 +49,7 @@ Api que será desenvolvida para o challenge da plusoft
 
 ### Criar usuário
 
-`POST` /mentalmed/usuario
+`POST` /mentalmed/cadastrar
 
 **Campos de requisições**
 
@@ -84,86 +81,6 @@ Api que será desenvolvida para o challenge da plusoft
 |-|-
 | 201 | Usuário cadastrado com sucesso
 | 400 | Solicitação inválida
-| 500 | erro no servidor
-
----
-
-### Obter usuário
-
-`GET` /mentalmed/usuario/{id} 
-
-**Exemplo de Corpo de Resposta**
-
-```js
-{
-  id: 1,
-  nome: 'Vinicius',
-  gênero: 'M',
-  email: 'fiappaulista@fiap.com.br',
-  senha: 'fiap123',
-  confirmarSenha: 'fiap123'
-}
-```
-
-**Códigos de Resposta**
-
-| código | descrição
-|-|-
-| 200 | usuário retornado com sucesso
-| 404 | usuário não encontrado
-| 500 | erro no servidor
-
----
-
-### Atualizar usuário
-
-`PUT` /mentalmed/usuario/{id}
-
-**Exemplo de corpo de requisição**
-
-```js
-{
-  id: 1,
-  nome: 'Vinicius',
-  gênero: 'M',
-  email: 'fiappaulista@fiap.com.br',
-  senha: 'fiap123',
-  confirmarSenha: 'fiap123'
-}
-```
-
-**Exemplo de corpo de respota**
-
-
-```js
-{
-  id: 1,
-  nome: 'Vinicius',
-  gênero: 'M',
-  email: 'fiappaulista@fiap.com.br',
-  senha: 'fiap23@',
-  confirmarSenha: 'fiap23@'
-}
-```
-
-**Códigos de Resposta**
-
-| código | descrição
-|-|-
-| 200 | usuário atualizado com sucesso
-| 404 | usuário não encontrado
-| 500 | erro no servidor
-
---- 
-
-### Excluir usuário
-
-`DELETE` /mentalmed/usuario/{id}
- 
-| código | descrição
-|-|-
-| 200 | usuário apagado com sucesso
-| 404 | usuário não encontrado
 | 500 | erro no servidor
 
 ---
