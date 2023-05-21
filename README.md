@@ -1,6 +1,8 @@
 # MentalMED
 
-Api que será desenvolvida para o challenge da plusoft
+Api que será desenvolvida para o challenge da plusoft:
+
+https://github.com/Challenge-Plusoft/mentalmed-api
 
 ## Endpoints
 
